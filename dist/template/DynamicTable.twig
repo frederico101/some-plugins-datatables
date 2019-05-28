@@ -1,0 +1,49 @@
+{% set columnsLocation = columns.location|default('tHeadAndTBody') %}
+{% set columnsData = columns.data %}
+<div class="table-holder">
+
+	<table id="{{ id }}" class="ui celled table dynamic-table" style="width:100%!important;" data-checkboxes="{{ checkboxes|default(false) }}">
+
+		<thead>
+
+			{% if columnsLocation == 'tHeadAndTBody' or columnsLocation == 'tHead' %}
+			<tr class="columns">
+{#
+				{% if checkboxes == true %}
+					<th class="select-all-cell"><div class="ui checkbox checkbox-primary select-all"><input name="select-all" type="checkbox"><label></label></div></th>
+				{% endif %}
+				#}
+				{% for column in columnsData %}
+					<th data-type="{{ column.type|default('') }}" data-type-params="{{ column.typeParams|default('') }}" data-content="{{ column.content|default('') }}" data-value="{{ column.value|default('') }}">{{ column.label|raw }}</th>
+				{% endfor %}
+
+			</tr>
+			{% endif %}
+
+		</thead>
+
+		<tbody>
+
+		</tbody>
+
+		<tfoot>
+
+			{% if columnsLocation == 'tHeadAndTBody' or columnsLocation == 'tFoot' %}
+			<tr class="columns">
+{#
+				{% if checkboxes == true %}
+					<th class="select-all-cell"><div class="ui checkbox checkbox-primary select-all"><input name="select-all" type="checkbox"><label></label></div></th>
+				{% endif %}
+#}
+				{% for column in columnsData %}
+					<th data-type="{{ column.type|default('') }}" data-content="{{ column.content|default('') }}" data-value="{{ column.value|default('') }}">{{ column.label|raw }}</th>
+				{% endfor %}
+
+			</tr>
+			{% endif %}
+
+		</tfoot>
+
+	</table>
+
+</div>

@@ -1,0 +1,5 @@
+.dynamic-table th[data-type="actions"] { width: auto; }
+.dynamic-table td .tools, .dynamic-table td .ui.buttons { white-space: nowrap; }
+.dynamic-table .tools i { margin: 0!important; padding: 0!important; }
+.dynamic-table .check.icon { color: green; }
+.dynamic-table .times.icon { color: red; }
